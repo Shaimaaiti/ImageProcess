@@ -12,8 +12,8 @@ packages for testing/developping backend apps, eslint and prettier configured
 
 ## Testing
 Testing is done using jasmine
-To run the tests, run `npm run test`
-To Start Express Server run  `npm run start` it will build btw.
+To run the tests, run `npm run test`,it will build btw.
+To Start Express Server run  `npm run start` 
 to build only run `npm run build`
 
 ### Api End point

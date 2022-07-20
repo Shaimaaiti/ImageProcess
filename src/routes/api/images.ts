@@ -13,10 +13,10 @@ images.get('/',inputChecker,async (req:express.Request,res:express.Response)=>{
     const height= parseInt(req.query.height);
     if(fileName)
     {
-       const assetsDirectory =`src/assets`;   
-       const thumbDirectory=`src/thumb`;    
-       const imageName = await getImagePath(assetsDirectory,fileName);
+       const assetsDirectory = path.join(__dirname,'../../','assets');       
 
+       const thumbDirectory=path.join(__dirname,'../../','thumb');         
+       const imageName = await getImagePath(assetsDirectory,fileName);
        console.log(imageName); 
        console.log("imageName type: "+typeof(imageName));
 
@@ -29,7 +29,7 @@ images.get('/',inputChecker,async (req:express.Request,res:express.Response)=>{
         if(!resizedImageName)
         {
           console.log("resizing ....!")
-          await resize({path:fileName},`./src/thumb/${newImageName}`,{width:width,height:height});
+          await resize({path:fileName},`${thumbDirectory}/${newImageName}`,{width:width,height:height});
           
         }       
           const src= path.join("/thumb",newImageName);
